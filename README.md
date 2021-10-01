@@ -39,9 +39,9 @@ This code can also be used for other segmentation tasks with domain variations.
 
 If you face any problem using this code then please create an issue in this repository or contact me at [tajwaraleef@ece.ubc.ca](mailto:tajwaraleef@ece.ubc.ca?subject=[GitHub]%20coSegGAN%20Issue%20)
 
-<!-- ### Acknowledgements
+### Acknowledgements
 
-The code is based on []() -->
+The code is based on [https://github.com/eriklindernoren/Keras-GAN/tree/master/cyclegan](https://github.com/eriklindernoren/Keras-GAN/tree/master/cyclegan)
 
 ### License
 MIT
