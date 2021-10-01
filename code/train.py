@@ -1,7 +1,7 @@
 '''
 Training code for Co-generation and Segmentation for Generalized Surgical Instrument Segmentation on Unlabelled Data (MICCAI 2021)
 
-Tajwar Abrar Aleef - tajwaraleef@ece.ubc.ca & Megha Kalia - mkalia@ece.ubc.ca
+Tajwar Abrar Aleef - tajwaraleef@ece.ubc.ca & Megha Kalia - mkalia@ece.ubc.ca (equal contribution)
 Robotics and Control Laboratory, University of British Columbia, Vancouver,
 Canada
 '''
@@ -38,7 +38,7 @@ class coSegGAN():
         loss_shape = metrics.binary_focal_loss() # Segmentation model loss
 
         # Create directory
-        self.model_name = '../MICCAI2021/Model with Domain A_' + self.data_A_name + '& B_' + self.data_B_name
+        self.model_name = '../models/Model with Domain A_' + self.data_A_name + ' & B_' + self.data_B_name
         os.makedirs('%s/Generator eval/' % (self.model_name), exist_ok=True)
 
         # Perform histEQ if UCL data is used (because data has inconsistent lighting)
@@ -53,7 +53,7 @@ class coSegGAN():
             hist_eq = 'B'
             hist_eq_B = True
 
-        self.operating_point = 0.5 # Threshold on output for converting to binary image
+        self.operating_point = 0.5# Threshold on output for converting to binary image
 
         # Input shape of RGB frames
         self.img_rows = 256
