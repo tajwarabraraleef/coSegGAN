@@ -5,7 +5,7 @@ Keras/Tensorflow implementation of coSegGAN. This work has been published in Med
 [<a href="https://arxiv.org/abs/2103.09276" target="_blank">arXiv</a> / <a href="https://link.springer.com/epdf/10.1007/978-3-030-87202-1_39?sharing_token=ajyXq8Wr3FCN1w3fyLJl8Pe4RwlQNchNByi7wbcMAY5jIjVfLm7XRSlmEv2IA6krM3ROQ4V5ULwAWxb1Fz1mjdUQpDH8xAMq7sZpoXcVl4OqoN-UhGwS7-zUQzcYkh2GLoe6K_NG9vQWW0ymts1VTzBXvGJ2c7haUWox0a-JqEM%3D" target="_blank">Paper</a>]
 
 <p align="left">
-<a href="#"><img src="assets/cover.jpg" width="100%"></a>
+<a href="#"><img src="assets/cover.png" width="100%"></a>
 </p>
 
 ### Dependencies
