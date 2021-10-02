@@ -29,7 +29,7 @@ docker pull tazleef/tf2.0.0-cv-keras2.3.1-imgaug:latest
 
 ### Training
 
-Due to privacy policy, we are unable to share our surgical dataset. However, we intend to release them soon once we get the approval. For now, we have included a few sample cases for reference. Alternatively, if you have your own data, format it in the same way and set the filepath and training parameters in `train.py`. 
+Due to privacy policy, we are unable to share our surgical dataset. However, we intend to release them soon once we get the approval. For now, we have included a few sample cases for reference. Alternatively, if you have your own data, format it in the same way and set the filepath and training parameters in `dataPathLoader.py`. 
 
 To train the model, run `train.py`. 
 
