@@ -11,18 +11,18 @@ import re
 from glob import glob
 
 # Reads all file paths for the given data. All paths are hardcoded here. Modify the paths as needed.
-def dataPathLoader(dataName):
+def data_path_loader(dataName):
 
 	X, Y, X_val, Y_val = ([] for _ in range(4))
 
 	if dataName == 'Endovis':
 
 		# Endovis 2017 data (Allan, M., et al.: 2017 robotic instrument segmentation challenge. arXiv preprint arXiv:1902.06426 (2019))
-		path = '../../npz_data/endovis2017/'
-		X = sorted(glob(path + '/training/images/*.png'), key=lambda f: int(re.sub('\D', '', f)))
-		Y = sorted(glob(path + '/training/segmentation/*.png'), key=lambda f: int(re.sub('\D', '', f)))
-		X_val = sorted(glob(path + '/validation/images/*.png'), key=lambda f: int(re.sub('\D', '', f)))
-		Y_val = sorted(glob(path + '/validation/segmentationCombined/*.png'), key=lambda f: int(re.sub('\D', '', f)))
+		path = '../data/endovis/'
+		X = sorted(glob(path + '/Training/images/*.png'), key=lambda f: int(re.sub('\D', '', f)))
+		Y = sorted(glob(path + '/Training/segmentations/*.png'), key=lambda f: int(re.sub('\D', '', f)))
+		X_val = sorted(glob(path + '/Validation/images/*.png'), key=lambda f: int(re.sub('\D', '', f)))
+		Y_val = sorted(glob(path + '/Validation/segmentations/*.png'), key=lambda f: int(re.sub('\D', '', f)))
 
 	elif dataName == 'UCL':
 
@@ -42,7 +42,7 @@ def dataPathLoader(dataName):
 		#video 13 well lit
 		#video 14 a bit dark and blood
 
-		path = '../../../../MICCAISyntheticStoyanov/'
+		path = '../data/UCL/'
 		train_folders = ['Video_01', 'Video_02', 'Video_03', 'Video_04', 'Video_05','Video_06', 'Video_07', 'Video_08']
 
 		val_folders = ['Video_09', 'Video_10']
@@ -57,17 +57,12 @@ def dataPathLoader(dataName):
 	elif dataName == 'Surgery':
 
 		# Surgical Data (Unlabelled)
-		path = '../../npz_data/surgery/processed/'
-		train_folders = ['PP38', 'PP42', 'PP43', 'PP44', 'PP46']
-		val_folders = ['validation']
-		for indx in range(len(train_folders)):
-			X = X + sorted(glob(path + train_folders[indx] + '/Left/*.png'),key=lambda f: int(re.sub('\D', '', f)))
+		path = '../data/surgery/Training'
+		X = sorted(glob(path + '/images/*.png'), key=lambda f: int(re.sub('\D', '', f)))
+		#No Y labels for surgical data during training
 
-		#No Y labels for surgical data
-		path = '../../npz_data/surgery/'
-		for indx in range(len(val_folders)):
-			X_val = X_val + sorted(glob(path + val_folders[indx] + '/images/Left/*.png'),key=lambda f: int(re.sub('\D', '', f)))
-			Y_val = Y_val + sorted(glob(path + val_folders[indx] + '/labels/Left/*.png'),
-			                       key=lambda f: int(re.sub('\D', '', f)))
+		path = '../data/surgery/Validation'
+		X_val = sorted(glob(path + '/images/*.png'), key=lambda f: int(re.sub('\D', '', f)))
+		Y_val = sorted(glob(path + '/segmentations/*.png'), key=lambda f: int(re.sub('\D', '', f)))
 
 	return [X, Y, X_val, Y_val]

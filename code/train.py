@@ -23,7 +23,7 @@ from keras.utils import generic_utils
 import models
 import metrics
 import classes
-from dataPathLoader import dataPathLoader
+from data_path_loader import data_path_loader
 from scipy.stats import iqr
 import data_utils
 from imgaug import augmenters as iaa
@@ -62,9 +62,9 @@ class coSegGAN():
         self.img_shape = (self.img_rows, self.img_cols, self.channels)
 
         # Load paths of all frames in Domain A
-        [self.Xa, self.Y, self.Xa_val, self.Ya_val] = dataPathLoader(self.data_A_name)
+        [self.Xa, self.Y, self.Xa_val, self.Ya_val] = data_path_loader(self.data_A_name)
         # Load paths of all frames in Domain B
-        [self.Xb, _, self.Xb_val, self.Yb_val] = dataPathLoader(self.data_B_name) # Theres no label for Domain B training. But for validation, labels are needed
+        [self.Xb, _, self.Xb_val, self.Yb_val] = data_path_loader(self.data_B_name) # Theres no label for Domain B training. But for validation, labels are needed
 
         print('\nData A: ' + self.data_A_name)
         print('Xa: ' + str(len(self.Xa)))
@@ -868,4 +868,4 @@ class coSegGAN():
 
 
 gan = coSegGAN()
-gan.train(epochs=100, batch_size=8, sample_interval=2)
+gan.train(epochs=100, batch_size=1, sample_interval=2)
